@@ -32,6 +32,19 @@ class Task
         $this->id = (int) $new_id;
     }
 
+    static function find($search_id)
+    {
+        $found_task = null;
+        $tasks = Task::getAll();
+        foreach($tasks as $task) {
+            $task_id = $task->getId();
+            if ($task_id == $search_id) {
+                $found_task = $task;
+            }
+        }
+        return $found_task;
+    }
+
     function save()
     {
         $statement = $GLOBALS['DB']->query("INSERT INTO tasks (description) VALUES ('{$this->getDescription()}') RETURNING id;");
