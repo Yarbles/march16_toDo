@@ -8,14 +8,12 @@
         function __construct($name, $id = null)
         {
             $this->name = $name;
-            if($id !== null) {
-                $this->id = $id;
-            }
+            $this->id = $id;
         }
 
-        function setName($name_name)
+        function setName($new_name)
         {
-            return $this->name;
+            return $this->name = (string) $new_name;
         }
 
         function getName()
@@ -71,4 +69,4 @@
         }
     }
 
-}?>
+?>
